@@ -1,11 +1,3 @@
-//
-//  Calculator1UITests.swift
-//  Calculator1UITests
-//
-//  Created by chayarak on 26/3/2561 BE.
-//  Copyright © 2561 chayarak. All rights reserved.
-//
-
 import XCTest
 
 class Calculator1UITests: XCTestCase {
@@ -28,9 +20,64 @@ class Calculator1UITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    let app = XCUIApplication()
+    
+    func testPlus() {
+        let textInput1 = app.textFields["textInput1"]
+        let textInput2 = app.textFields["textInput2"]
+        let plusButton = app.buttons["plusButton"]
+        let resultButton = app.buttons["resultButton"]
+        textInput1.tap()
+        textInput1.typeText("500")
+        plusButton.tap()
+        textInput2.typeText("150")
+        resultButton.tap()
     }
     
+    func testMinus() {
+        let textInput1 = app.textFields["textInput1"]
+        let textInput2 = app.textFields["textInput2"]
+        let minusButton = app.buttons["minusButton"]
+        let resultButton = app.buttons["resultButton"]
+        textInput1.tap()
+        textInput1.typeText("500")
+        minusButton.tap()
+        textInput2.typeText("150")
+        resultButton.tap()
+    }
+    
+    func testMultiply() {
+        let textInput1 = app.textFields["textInput1"]
+        let textInput2 = app.textFields["textInput2"]
+        let multiplyButton = app.buttons["multiplyButton"]
+        let resultButton = app.buttons["resultButton"]
+        textInput1.tap()
+        textInput1.typeText("500")
+        multiplyButton.tap()
+        textInput2.typeText("150")
+        resultButton.tap()
+    }
+    
+    func testDevide() {
+        let textInput1 = app.textFields["textInput1"]
+        let textInput2 = app.textFields["textInput2"]
+        let devideButton = app.buttons["devideButton"]
+        let resultButton = app.buttons["resultButton"]
+        textInput1.tap()
+        textInput1.typeText("500")
+        devideButton.tap()
+        textInput2.typeText("150")
+        resultButton.tap()
+    }
+    
+    func testHaveEmpty(){
+        let expect = app.navigationBars["Calculate"].waitForExistence(timeout: 10)
+        XCTAssertTrue(expect)
+        
+//        let buttonResult = app.buttons["resultButton"]
+    }
+    
+    func testSuccess(){
+        
+    }
 }
