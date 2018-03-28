@@ -1,17 +1,9 @@
-//
-//  HistoryVC.swift
-//  Calculator1
-//
-//  Created by chayarak on 26/3/2561 BE.
-//  Copyright © 2561 chayarak. All rights reserved.
-//
-
 import UIKit
 
 class HistoryVC: UIViewController {
     
     @IBOutlet weak var tableHistory: UITableView!
-    var listItem:DataListItem!
+    var listItem:DataListItem = DataListItem()
     override func viewDidLoad() {
         super.viewDidLoad()
     }

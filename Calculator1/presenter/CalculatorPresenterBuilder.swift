@@ -1,9 +1,19 @@
+//import Foundation
 //
-//  CalculatorPresenterBuilder.swift
-//  Calculator1
-//
-//  Created by chayarak on 26/3/2561 BE.
-//  Copyright © 2561 chayarak. All rights reserved.
-//
+//class CalculatePresenterBuilder{
+//    weak var presenter: CalculatePresenter?
+//    
+//    init() {
+//        presenter = CalculatePresenter()
+//    }
+//    
+//    func setView(_ view:ICalculator) -> CalculatePresenterBuilder{
+//            presenter?.callBack = view
+//            return self
+//    }
+//    func build()-> CalculatePresenter{
+//        return presenter!
+//    }
+//    
+//}
 
-import Foundation

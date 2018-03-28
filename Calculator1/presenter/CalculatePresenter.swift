@@ -4,10 +4,9 @@ protocol ICalculator:class {
     func onResult(convertResult:String)
 }
 
-class CalculatePresenter: NSObject{
+class CalculatePresenter{
     
     var callBack: ICalculator
-    
     
     init(_ view:ICalculator){
         self.callBack = view

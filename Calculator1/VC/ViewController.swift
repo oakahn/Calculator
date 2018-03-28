@@ -1,24 +1,13 @@
-//
-//  ViewController.swift
-//  Calculator1
-//
-//  Created by chayarak on 26/3/2561 BE.
-//  Copyright © 2561 chayarak. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController,ICalculator{
+class ViewController: UIViewController, ICalculator{
     
     func onResult(convertResult: String) {
         let modelPrepare = EquationModel(result: convertResult, leftNo: input1.text!, rightNo: input2.text!, oper: target)
-        
         listOfHistorys.listOfHistory.append(modelPrepare)
-        
         submitLabel.text = convertResult
     }
     
-
     var listItemPageCalculate:[String] = []
     var target = ""
     var listOfHistorys:DataListItem = DataListItem()
@@ -34,7 +23,9 @@ class ViewController: UIViewController,ICalculator{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        listOfHistorys = DataListItem()
+    }
 
     @IBAction func calculateNumber(_ sender: Any) {
         if checkEmpty(){
@@ -43,10 +34,9 @@ class ViewController: UIViewController,ICalculator{
     }
     
     @IBAction func goToPageHistory(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let goToHistoryPage = storyboard.instantiateViewController(withIdentifier: "HistoryPage") as! HistoryVC
-        goToHistoryPage.listItem = listOfHistorys
-        navigationController?.pushViewController(goToHistoryPage, animated: true)
+        let redirectToHistory = CalculateRouter()
+        redirectToHistory.reDirectToHistoryPage(view: self, listItem: listOfHistorys)
+//        reDirectToHistoryPage(listItem: listOfHistorys)
     }
     
     func checkEmpty() -> Bool{
@@ -57,7 +47,7 @@ class ViewController: UIViewController,ICalculator{
     }
     
     @IBAction func minusCalculate(_ sender: Any) {
-        target = "-"
+        target = "-" 
         input2.becomeFirstResponder()
     }
     
@@ -79,7 +69,22 @@ class ViewController: UIViewController,ICalculator{
     func clearAllFill(){
         input1.text = ""
         input2.text = ""
+        submitLabel.text = ""
         target = ""
     }
+    
+    @IBAction func clearAllText(_ sender: Any) {
+        clearAllFill()
+    }
+    
 }
+
+//extension ViewController{
+//    func reDirectToHistoryPage(listItem: DataListItem){
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let goToHistoryPage = storyboard.instantiateViewController(withIdentifier: "HistoryPage") as! HistoryVC
+//        goToHistoryPage.listItem = listItem
+//        navigationController?.pushViewController(goToHistoryPage, animated: true)
+//    }
+//}
 
